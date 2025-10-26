@@ -26,7 +26,7 @@ export class DeleteProductComponent {
 
   constructor(private fb: FormBuilder, public usersService: UsersService, private productsService: ProductsService, private router: Router, private activatedRoute: ActivatedRoute) {
     this.deleteProductForm = this.fb.group({
-      productId: [{ value: '', disabled: true }],
+      productID: [{ value: '', disabled: true }],
       productName: [{ value: '', disabled: true }],
       category: [{ value: '', disabled: true }],
       unitPrice: [{ value: '', disabled: true }],
@@ -36,12 +36,12 @@ export class DeleteProductComponent {
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params => {
-      var productId = params['productId']; // Replace with your actual parameter name
+      var productID = params['productID']; // Replace with your actual parameter name
 
-      this.productsService.getProductByProductID(productId).subscribe({
+      this.productsService.getProductByProductID(productID).subscribe({
         next: (response: ProductResponse) => {
           this.deleteProductForm.setValue({
-            productId: response.productId,
+            productID: response.productID,
             productName: response.productName,
             category: response.category,
             unitPrice: response.unitPrice,
@@ -58,7 +58,7 @@ export class DeleteProductComponent {
 
   delete(): void {
     const deleteProduct = this.deleteProductForm.value;
-    this.productsService.deleteProduct(deleteProduct.productId).subscribe({
+    this.productsService.deleteProduct(deleteProduct.productID).subscribe({
       next: (response: boolean) => {
         if (response)
           this.router.navigate(['admin', 'products']);
@@ -70,7 +70,7 @@ export class DeleteProductComponent {
   }
 
   get productIDFormControl(): FormControl {
-    return this.deleteProductForm.get('productId') as FormControl;
+    return this.deleteProductForm.get('productID') as FormControl;
   }
 
   get productNameFormControl(): FormControl {

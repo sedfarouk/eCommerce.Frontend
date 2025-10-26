@@ -1,7 +1,7 @@
-export interface ProductUpdateRequest {
+export interface CartItem {
     productID: string;
     productName: string;
     category: string;
     unitPrice: number;
-    quantityInStock: number;
+    quantity: number;
 }
