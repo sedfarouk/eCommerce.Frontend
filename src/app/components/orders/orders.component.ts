@@ -42,7 +42,7 @@ export class OrdersComponent {
             order.orderItems.forEach((orderItem: OrderItemResponse) => {
 
               var cartItem: CartItem = {
-                productID: orderItem.productID,
+                productId: orderItem.productID,
                 productName: orderItem.productName,
                 unitPrice: orderItem.unitPrice,
                 quantity: orderItem.quantity,

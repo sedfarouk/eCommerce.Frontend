@@ -21,7 +21,7 @@ export class CartService {
         var isFound: boolean = false;
         this.cart = this.cart.map(item => {
             //console.log(item.productID, cartItem.productID, item.productID == cartItem.productID);
-            if (item.productID == cartItem.productID) {
+            if (item.productId == cartItem.productId) {
                 item.quantity++;
                 isFound = true;
             }
@@ -41,7 +41,7 @@ export class CartService {
         //console.log(this.cart, productID);
 
         this.cart = this.cart.map(item => {
-            if (item.productID == productID) {
+            if (item.productId == productID) {
                 if (item.quantity > 1)
                     item.quantity--;
                 else
@@ -54,7 +54,7 @@ export class CartService {
 
         if (shouldRemoveItem) {
             this.cart = this.cart.filter(item => {
-                return item.productID != productID;
+                return item.productId != productID;
             })
         }
     }
@@ -75,7 +75,7 @@ export class CartService {
         };
         this.cart.forEach(cartItem => {
             newOrderRequest.orderItems.push({
-                productID: cartItem.productID,
+                productID: cartItem.productId,
                 unitPrice: cartItem.unitPrice,
                 quantity: cartItem.quantity
             });

@@ -41,7 +41,7 @@ export class EditProductComponent {
       this.productsService.getProductByProductID(productID).subscribe({
         next: (response: ProductResponse) => {
           this.editProductForm.setValue({
-            productID: response.productID,
+            productID: response.productId,
             productName: response.productName,
             category: response.category,
             unitPrice: response.unitPrice,
