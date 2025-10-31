@@ -10,6 +10,7 @@ import { environment } from '../../environment';
 })
 export class UsersService {
   private usersAPIURL: string = environment.usersAPIURL;
+
   public isAuthenticated: boolean = false;
   public isAdmin: boolean = false;
   public currentUserName: string | null = "";
@@ -34,7 +35,7 @@ export class UsersService {
     if (email === 'admin@example.com' && password === 'admin') {
       // If it's the admin user, return a custom Observable
       const adminUser: AuthenticationResponse = {
-        userID: 'admin_id',
+        userId: 'admin_id',
         personName: 'Admin',
         email: 'admin@example.com',
         gender: 'male', // Add the appropriate gender for the admin user

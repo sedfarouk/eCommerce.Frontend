@@ -69,13 +69,13 @@ export class CartService {
 
     newOrder(): Observable<OrderResponse> {
         var newOrderRequest: NewOrderRequest = {
-            userID: this.usersService.authResponse?.userID!,
+            userId: this.usersService.authResponse?.userId!,
             orderDate: new Date(),
             orderItems: []
         };
         this.cart.forEach(cartItem => {
             newOrderRequest.orderItems.push({
-                productID: cartItem.productId,
+                productId: cartItem.productId,
                 unitPrice: cartItem.unitPrice,
                 quantity: cartItem.quantity
             });
